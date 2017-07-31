@@ -1,16 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 import {
-  userRoutes
-} from './';
+  NewUserComponent,
+  UserService
+} from './index';
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild(userRoutes),
+    FormsModule,
+    HttpModule,
   ],
-  declarations: []
+  declarations: [
+    NewUserComponent
+  ],
+  providers: [
+    UserService
+  ]
 })
 export class UserModule { }
