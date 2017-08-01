@@ -35,12 +35,12 @@ describe('NavComponent', () => {
   });
 
   describe('When signed out', () => {
-    xit('should display signin and signup links', () => {
+    it('should display signin and signup links', () => {
       expect(fixture.nativeElement.textContent).toContain('Signin');
       expect(fixture.nativeElement.textContent).toContain('Signup');
     })
     
-    xit('should not display signout and profile links', () => {
+    it('should not display signout and profile links', () => {
       expect(fixture.nativeElement.textContent).not.toContain('Profile');
       expect(fixture.nativeElement.textContent).not.toContain('Signout');
     })
