@@ -1,14 +1,20 @@
 <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse fixed-top" style="border-radius: 0;">
-  <a class="navbar-brand"  [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Leto</a>
+  <a class="navbar-brand"  [routerLink]="['/']" routerLinkActive="active">Leto</a>
   <ul class="nav navbar-nav mr-auto">
     <li class="nav-item">
-      <a class="nav-link"  [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a>
+      <a class="nav-link"  [routerLink]="['/']" routerLinkActive="active">Home</a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" [routerLink]="['/signup']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Signup</a>
+    <li class="nav-item" *ngIf="!auth.isAuthenticated()">
+      <a class="nav-link" [routerLink]="['/signup']" routerLinkActive="active">Signup</a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" [routerLink]="['/signin']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Signin</a>
+    <li class="nav-item" *ngIf="!auth.isAuthenticated()">
+      <a class="nav-link" [routerLink]="['/signin']" routerLinkActive="active">Signin</a>
+    </li>
+    <li class="nav-item" *ngIf="auth.isAuthenticated()">
+      <a class="nav-link" [routerLink]="['/']" routerLinkActive="active">Profile</a>
+    </li>
+    <li class="nav-item" *ngIf="auth.isAuthenticated()">
+      <a class="nav-link" [routerLink]="['/signout']" routerLinkActive="active">Signout</a>
     </li>
   </ul>
 </nav>
